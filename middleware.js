@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken-esm"
 // If the incoming request has the "beta" cookie
 // then we'll rewrite the request to /beta
 export function middleware(req) {

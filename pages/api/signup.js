@@ -1,6 +1,6 @@
 import connectMongo from "../../utils/connectMongo";
 import userModel from "../../models/userModel";
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken-esm"
 import {serialize} from "cookie"
 export default async function handler(req,res){
     await connectMongo()
