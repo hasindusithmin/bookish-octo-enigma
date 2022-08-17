@@ -9,7 +9,6 @@ export default async function handler(req,res){
         const user = await userModel.login(email,password)
         const token = CryptoJS.AES.encrypt(user._id.toString(),process.env.JWT_SECRET).toString()
         res.setHeader('Set-Cookie', serialize('token', token, { httpOnly:true,maxAge:3600 }));
-        res.setHeader('Set-Cookie', serialize('user_id', user._id.toString(), { httpOnly:true,maxAge:3600 }));
         res.status(200).json({user:user._id})
     } catch (error) {
         res.status(401).json({error:error.message})
