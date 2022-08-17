@@ -5,7 +5,7 @@ import { Container } from '@mui/material'
 export default function Home() {
   return (
     <Container>
-      <div>|</div>
+      <div>Home</div>
     </Container>
   )
 }
