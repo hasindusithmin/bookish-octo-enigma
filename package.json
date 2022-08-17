@@ -14,7 +14,7 @@
     "@mui/material": "^5.9.3",
     "bcrypt": "^5.0.1",
     "cookies-next": "^2.1.1",
-    "jsonwebtoken-esm": "^1.0.3",
+    "crypto-js": "^4.1.1",
     "mongoose": "^6.5.1",
     "next": "^12.2.4",
     "react": "18.2.0",
