@@ -7,7 +7,7 @@ export function middleware(req) {
   if (req.nextUrl.pathname.startsWith('/onauth')) {
     const token = req.cookies.get('token')
     const url = req.nextUrl.clone()
-    url.pathname = '/signin'
+    url.pathname = '/login'
     if (token) {
       const bytes  = CryptoJS.AES.decrypt(token, process.env.JWT_SECRET);
       const plain = bytes.toString(CryptoJS.enc.Utf8);
