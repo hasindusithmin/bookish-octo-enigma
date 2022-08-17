@@ -3,12 +3,27 @@ import { Container } from "@mui/material"
 
 export default function Signin(){
     // const {name,email,password,nic,post,contact} = req.body;
-    const handler = e=>{
+    const handler = async(e)=>{
         e.preventDefault()
         const form = document.getElementById('form')
         const formData = new FormData(form)
-        for (let [key,value] of formData) {
-            console.log(`${key} == ${value}`);
+        let signup_data = {}
+        for (let [key,value] of formData) signup_data[key] = value;
+        const res = await fetch('/api/signup',{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(signup_data)
+        })
+        if (res.status == 200) {
+            const {user} = await res.json()
+            localStorage.setItem('user_id',user)
+            location.href = '/'
+        }
+        else {
+            const {error} = await res.json()
+            alert(error)
         }
     }
     return (
